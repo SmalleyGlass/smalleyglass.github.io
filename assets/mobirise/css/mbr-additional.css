@@ -1465,6 +1465,17 @@ a {
 .cid-uNtKOg8o5D .grid-container-2 {
   align-items: flex-start;
 }
+.cid-S4S6NoUlnl {
+  padding-top: 135px;
+  background: linear-gradient(180deg, #ffffff, #ffffff);
+}
+.cid-S4S6NoUlnl .wave1 {
+  opacity: 0.35;
+  fill: #003e54;
+}
+.cid-S4S6NoUlnl .wave2 {
+  fill: #003e54;
+}
 .cid-tL70TtsETn {
   padding-top: 3rem;
   padding-bottom: 3rem;
@@ -2368,6 +2379,17 @@ a {
 }
 .cid-uNtBhHfmMM .content-head {
   max-width: 800px;
+}
+.cid-nWvCBm8vqO {
+  padding-top: 75px;
+  background: linear-gradient(180deg, #003e54, #003e54);
+}
+.cid-nWvCBm8vqO .wave1 {
+  opacity: 0.35;
+  fill: #f7f7f7;
+}
+.cid-nWvCBm8vqO .wave2 {
+  fill: #f7f7f7;
 }
 .cid-uNtAlk3lIp {
   padding-top: 6rem;
