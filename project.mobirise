@@ -67,7 +67,8 @@
     "publishChangesOnly": false,
     "uniqCompNum": 10,
     "versionPublish": "6.0.6",
-    "screenshot": "screenshot.png"
+    "screenshot": "screenshot.png",
+    "witsec-white-label": true
   },
   "pages": {
     "index.html": {
