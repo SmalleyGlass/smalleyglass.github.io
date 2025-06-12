@@ -1057,7 +1057,7 @@
               "color": "#ffffff"
             },
             ".mbr-text, .mbr-section-btn": {
-              "color": "#f7f7f7",
+              "color": "#232323",
               "text-align": "left"
             }
           },
