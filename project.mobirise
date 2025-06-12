@@ -833,82 +833,51 @@
         {
           "alias": false,
           "_styles": {
-            "display": "flex",
             "& when not (@fullScreen)": {
               "padding-top": "(@paddingTop * 1rem)",
               "padding-bottom": "(@paddingBottom * 1rem)"
             },
-            "& when (@bg-type = \"color\")": {
-              "background-color": "@bg-value"
-            },
-            "& when (@bg-type = \"image\")": {
-              "background-image": "url(@bg-value)",
-              ".mbr-overlay": {
-                "background-color": "@overlayColor",
-                "opacity": "@overlayOpacity"
+            "background-color": "@bgColor",
+            "p": {
+              "background": "linear-gradient(transparent, transparent), url(@TextBackImage)",
+              "-webkit-background-clip": "text",
+              "-webkit-text-fill-color": "transparent",
+              "-webkit-text-stroke": "(@sizebordertext * 1px) @BorderTextColor",
+              "font-size": "(@TextSize * 1rem)",
+              "font-weight": "@TextWeight",
+              "line-height": "(@TextHeight * 1em)",
+              "letter-spacing": "(@LetterSpacing * -1rem)",
+              "padding": "(@PaddingText * 1rem)",
+              "& when (@parallaximage)": {
+                "background-attachment": "fixed",
+                "background-size": "cover",
+                "background-position": "center",
+                "background-repeat": "no-repeat"
               }
             },
-            ".mbr-fallback-image.disabled": {
-              "display": "none"
-            },
-            ".mbr-fallback-image": {
-              "display": "block",
-              "background-size": "cover",
-              "background-position": "center center",
-              "width": "100%",
-              "height": "100%",
-              "position": "absolute",
-              "top": "0",
-              "& when (@bg-type = \"video\")": {
-                "background-image": "url(@fallBackImage)"
-              }
-            },
-            ".content-wrap": {
-              "padding": "5rem 1rem",
-              "@media (min-width: 992px)": {
-                "padding": "5rem 3rem"
-              }
-            },
-            "@media (min-width: 768px)": {
-              "align-items": "~\"@{verticalAlign}\"",
-              ".row": {
-                "justify-content": "~\"@{horizontalAlign}\""
-              }
-            },
-            "@media (max-width: 991px) and (min-width: 768px)": {
-              ".content-wrap": {
-                "min-width": "50%"
-              }
-            },
-            "@media (max-width: 767px)": {
-              "-webkit-align-items": "center",
-              "align-items": "center",
-              ".mbr-row": {
-                "-webkit-justify-content": "center",
-                "justify-content": "center"
-              },
-              ".content-wrap": {
-                "width": "100%"
+            "@media (max-width: 991px)": {
+              "p": {
+                "font-size": "5rem",
+                "font-weight": "500",
+                "line-height": "1em",
+                "letter-spacing": "-0.1rem",
+                "padding": "(@PaddingText * 1rem)"
               }
             },
             ".mbr-section-title": {
-              "text-align": "center",
-              "color": "#f7f7f7"
-            },
-            ".mbr-text, .mbr-section-btn": {
-              "text-align": "center",
-              "color": "#f7f7f7"
+              "color": "#000000",
+              "text-align": "center"
             }
           },
-          "_name": "header09",
+          "_name": "design-block",
+          "_customHTML": "<section data-bs-version=\"5.1\" class=\"content4\" group=\"Content\" mbr-class=\"{\n    'mbr-fullscreen': fullScreen}\">\n    <mbr-parameters>\n        \n        <header>Size</header>\n                <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\" checked>\n                <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\" checked>\n                <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"5\" condition=\"fullScreen == false\">\n                <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"5\" condition=\"fullScreen == false\">\n                <input type=\"range\" name=\"textWidth\" title=\"Width\" min=\"4\" max=\"12\" step=\"1\" value=\"12\">\n        <header>Text</header>\n                <input type=\"range\" inline title=\"Text Size\" name=\"TextSize\" min=\"2\" max=\"15\" step=\"1\" value=\"15\">         \n                <input type=\"range\" inline title=\"Text Weight\" name=\"TextWeight\" min=\"100\" max=\"900\" step=\"1\" value=\"160\">  \n                <input type=\"range\" inline title=\"Text Height\" name=\"TextHeight\" min=\"0\" max=\"5\" step=\"0.1\" value=\"1\">     \n                <input type=\"range\" inline title=\"Letter Spacing\" name=\"LetterSpacing\" min=\"-2\" max=\"2\" step=\"0.01\" value=\"-2\">  \n                <input type=\"range\" inline title=\"Padding\" name=\"PaddingText\" min=\"-5\" max=\"5\" step=\"0.1\" value=\"1\">   \n                <input type=\"color\" title=\"Border Color\" name=\"BorderTextColor\" value=\"#003e54\">\n                <input type=\"range\" inline title=\"Width\" name=\"sizebordertext\" min=\"0\" max=\"10\" step=\"1\" value=\"0\"> \n        <header>Show/Hide</header>\n                <input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked>\n                <input type=\"checkbox\" title=\"Subtitle\" name=\"showSubtitle\" checked>\n                <input type=\"checkbox\" title=\"Buttons\" name=\"showButtons\">\n                <header>Background Text</header>\n                <input type=\"image\" title=\"Image\" value=\"@PROJECT_PATH@/assets/images/bg8.webp\" name=\"TextBackImage\">\n                <input type=\"checkbox\" title=\"Parallax\" name=\"parallaximage\" checked>\n                <header>Background Color</header>\n                <input type=\"color\" title=\"Color\" name=\"bgColor\" value=\"#f7f7f7\">\n\n    </mbr-parameters>\n\n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row justify-content-center\">\n            <div class=\"title col-md-12 col-lg-{{textWidth}}\">\n                <p class=\"mbr-section-title align-center mb-4\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\" mbr-theme-style=\"display-1\">\n                    SMALLEY<br>GLASS</p>\n                <h4 class=\"mbr-section-subtitle align-center mbr-fonts-style mb-4\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-5\">Smalley Glass | Stained Glass Art | Derbyshire</h4>\n                <div class=\"mbr-section-btn align-center\" mbr-if=\"showButtons\" mbr-buttons mbr-theme-style=\"display-4\">\n                    <a class=\"btn btn-primary\" href=\"https://mobiri.se\">LEARN MORE</a>\n                    <a class=\"btn btn-primary-outline\" href=\"https://mobiri.se\">LIVE DEMO</a>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "sRtRAFksTY",
+          "_anchor": "design-block-sRtRAFksTY",
           "_sourceTheme": "startm5",
-          "_customHTML": "<section data-bs-version=\"5.1\" class=\"header09 startm5\" group=\"Headers\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" mbr-class=\"{'mbr-fullscreen': fullScreen, 'mbr-parallax-background': bg.parallax}\">\t\n    <mbr-parameters>\n\t\t<header>Size</header>\n\t\t<input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\" checked>\n\t\t<input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\" checked>\n\t\t<input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"12\" step=\"1\" value=\"6\" condition=\"fullScreen == false\">\n\t\t<input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"12\" step=\"1\" value=\"6\" condition=\"fullScreen == false\">\n\t\t<input type=\"range\" inline name=\"contentWidth\" title=\"Content Width\" min=\"4\" max=\"12\" step=\"1\" value=\"12\">\n\t\t<header>Show / Hide</header>\n\t\t<input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked>\n\t\t<input type=\"checkbox\" title=\"Subtitle\" name=\"showSubtitle\">\n\t\t<input type=\"checkbox\" title=\"Text\" name=\"showText\" checked>\n\t\t<input type=\"checkbox\" title=\"Buttons\" name=\"showButtons\">\n\t\t<select title=\"Vertical Align\" name=\"verticalAlign\" condition=\"fullScreen\">\n\t\t\t<option value=\"flex-start\">Top</option>\n\t\t\t<option value=\"center\" selected>Center</option>\n\t\t\t<option value=\"flex-end\">Bottom</option>\n\t\t</select>\n\t\t<select title=\"Horizontal Align\" name=\"horizontalAlign\">\n\t\t\t<option value=\"flex-start\">Left</option>\n\t\t\t<option value=\"center\" selected>Center</option>\n\t\t\t<option value=\"flex-end\">Right</option>\n\t\t</select>\n\t\t<header>Background</header>\n\t\t<fieldset type=\"background\" name=\"bg\" parallax>\n\t\t\t<input type=\"image\" title=\"Image\" value=\"@PROJECT_PATH@/assets/images/gal3-1000x500.webp\" selected parallax>\n\t\t\t<input type=\"color\" title=\"Color\" value=\"#003e54\">\n\t\t\t<input type=\"video\" title=\"Video\" value=\"https://vimeo.com/428046504\">\n\t\t</fieldset>\n\t\t<header condition=\"bg.type === 'video'\">Fallback Image</header>\n\t\t<input type=\"image\" title=\"Fallback Image\" value=\"../_images/background1.jpg\" name=\"fallBackImage\" condition=\"bg.type === 'video'\">\n\t\t<input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n\t\t<input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#1e4753\" condition=\"overlay && bg.type !== 'color'\">\n\t\t<input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.7\" condition=\"overlay && bg.type !== 'color'\">\n\t</mbr-parameters>\n\t<div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n\t<div class=\"mbr-fallback-image disabled\" mbr-if=\"bg.type == 'video'\"></div>\n\t<div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"content-wrap col-12 col-md-{{contentWidth}}\">\n\t\t\t\t<h1 class=\"mbr-section-title mbr-fonts-style mbr-white mb-4\" mbr-theme-style=\"display-1\" data-app-selector=\".mbr-section-title\" mbr-if=\"showTitle\"><b>Smalley Glass</b></h1>\n\t\t\t\t<h2 class=\"mbr-section-title mbr-fonts-style mbr-white mb-4\" data-app-selector=\".mbr-section-title\" mbr-theme-style=\"display-2\" mbr-if=\"showSubtitle\">\n\t\t\t\t\tStained Glass Art</h2>\n\t\t\t\t<p class=\"mbr-fonts-style mbr-text mbr-white mb-4\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">Stained Glass Art | Derbyshire</p>\n\t\t\t\t<div class=\"mbr-section-btn\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\" mbr-buttons mbr-theme-style=\"display-7\"><a class=\"btn btn-danger\" href=\"index.html#header16-0\" data-app-placeholder=\"Type Text\">About Me</a></div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>",
-          "_cid": "uNTGRA6tNa",
           "_protectedParams": [],
           "_global": false,
           "_once": false,
-          "_params": {},
-          "_anchor": "header09-q"
+          "_params": {}
         },
         {
           "alias": false,
