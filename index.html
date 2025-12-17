@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="assets/theme/css/style.css">
   <link rel="preload" href="https://fonts.googleapis.com/css?family=Manrope:200,300,400,500,600,700,800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Manrope:200,300,400,500,600,700,800&display=swap"></noscript>
-  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css?v=oxdjBy"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css?v=oxdjBy" type="text/css">
+  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css?v=pSQVYu"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css?v=pSQVYu" type="text/css">
 
   
   
@@ -36,18 +36,18 @@
     const magicWord = "[[CALCULATOR]]";
     
     // The Calculator HTML to swap in
+    // CHANGED: height is now 85vh (85% of the screen height)
     const calculatorHTML = `
       <iframe 
         src="https://resilient-klepon-ef39b4.netlify.app/" 
-        style="width: 100%; height: 900px; border: none; overflow: hidden;" 
-        title="Smalley Glass Cost Estimator">
+        style="width: 100%; height: 100vh; min-height: 900px; border: none; overflow: hidden;" 
+        title="Smalley Glass Cost Calc">
       </iframe>
     `;
 
     // Find all text blocks and swap the magic word
     const allElements = document.getElementsByTagName('*');
     for (let i = 0; i < allElements.length; i++) {
-      // Check if the element contains ONLY our magic word (trimmed of whitespace)
       if (allElements[i].innerText && allElements[i].innerText.trim() === magicWord) {
         allElements[i].innerHTML = calculatorHTML;
       }
@@ -164,7 +164,7 @@
         </div>
         <div class="row justify-content-center mt-4">
             <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
-                <form action="https://mobirise.eu/" method="POST" class="mbr-form form-with-styler" data-form-title="Form Name"><input type="hidden" name="email" data-form-email="true" value="eXGOSCXtiYapddfBU9s9c5w6FlR2fFvQWlck4/tsdKRNw0CjSA9zc+KjYrepn0TqqK0yYrwf9BzqVXqGXikgCDVzNx01GTykLv4Q1DPmMOjWkpGaaMvSRpoDKtF3OefR">
+                <form action="https://mobirise.eu/" method="POST" class="mbr-form form-with-styler" data-form-title="Form Name"><input type="hidden" name="email" data-form-email="true" value="hCm1QbnI4R+KDnW4sdf2V70r/l4u6P1j1v1PdwTwi8EhzynSr7pwslOcANOquKs1ltGGyhfwV/MPwxWSJYsPDah06VDA841HGBLRSfq4j22KdUIc4v9oQd25JCgP0VrV">
                     <div class="row">
                         <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Thanks, your message has been sent!</div>
                         <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">
